@@ -61,7 +61,8 @@ async function downloadNuGet() {
 
 async function signWithSigntool(fileName: string) {
     try {
-        const { stdout } = await asyncExec(`"${signtool}" sign /f ${certificateFileName} /tr ${timestampUrl} /td sha256 /fd sha256 ${fileName}`);
+        const password = core.getInput('password')
+        const { stdout } = await asyncExec(`"${signtool}" sign /f ${certificateFileName}${password ? ` /p ${password}` : ''} /tr ${timestampUrl} /td sha256 /fd sha256 ${fileName}`);
         console.log(stdout);
         return true;
     } catch(err) {
@@ -75,7 +76,8 @@ async function signNupkg(fileName: string) {
     await downloadNuGet();
 
     try {
-        const { stdout } = await asyncExec(`"${nugetFileName}" sign ${fileName} -CertificatePath ${certificateFileName} -Timestamper ${timestampUrl}`);
+        const password = core.getInput('password')
+        const { stdout } = await asyncExec(`"${nugetFileName}" sign ${fileName} -CertificatePath ${certificateFileName}${password ? ` -CertificatePassword ${password}` : ''} -Timestamper ${timestampUrl}`);
         console.log(stdout);
         return true;
     } catch(err) {
