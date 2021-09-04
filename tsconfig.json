@@ -2,12 +2,13 @@
     "compilerOptions": {
       "target": "es2017",
       "module": "commonjs",
-      "outDir": "lib",
+      "outDir": "dist",
       "declaration": true,
       "removeComments": true,
       "strict": true,
       "esModuleInterop": true,
-      "stripInternal": true
+      "stripInternal": true,
+      "moduleResolution": "node"
     }
   }
   

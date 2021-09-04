@@ -1,0 +1,21 @@
+on: push
+
+name: self_test
+jobs:
+  run_action:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Copy a known .exe file
+        shell: cmd
+        run: |
+          copy C:\Windows\notepad.exe ./
+
+      - name: Sign
+        uses: ./
+        with:
+          certificate: '${{ secrets.WIN_CERT_B64 }}'
+          password: '${{ secrets.WIN_CERT_B64_P }}'
+          folder: '.'

@@ -18,11 +18,11 @@
   },
   "homepage": "https://github.com/dlemstra/code-sign-action#readme",
   "dependencies": {
-    "@actions/core": "^1.2.0"
+    "@actions/core": "^1.5.0"
   },
   "devDependencies": {
-    "@types/node": "^12.11.1",
-    "@zeit/ncc": "^0.20.5",
-    "typescript": "^3.6.4"
+    "@types/node": "^16.7.10",
+    "@vercel/ncc": "^0.30.0",
+    "typescript": "^4.4.2"
   }
 }

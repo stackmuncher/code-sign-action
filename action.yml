@@ -5,17 +5,14 @@ branding:
   color: 'green'
 inputs:
   certificate:
-    description: 'The base64 encoded certificate.'
+    description: 'The base64 encoded certificate as a single base64, no header, footer or line breaks.'
     required: true
   password:
     description: 'The certificate password.'
     required: false
   folder:
-    description: 'The folder that contains the files to sign.'
+    description: 'The folder that contains the files to sign, e.g. `target\release` or `.`.'
     required: true
-  recursive:
-    description: 'Recursively search for supported files.'
-    required: false
 runs:
-  using: 'node12'
+  using: 'node14'
   main: 'dist/index.js'
