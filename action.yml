@@ -14,5 +14,5 @@ inputs:
     description: 'The folder that contains the files to sign, e.g. `target\release` or `.`.'
     required: true
 runs:
-  using: 'node14'
+  using: 'node12'
   main: 'dist/index.js'
