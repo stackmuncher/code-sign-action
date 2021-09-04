@@ -11,7 +11,7 @@ jobs:
       - name: Copy a known .exe file
         shell: cmd
         run: |
-          copy C:\Windows\notepad.exe ./
+          copy C:\Windows\notepad.exe .\notepad.exe
 
       - name: Sign
         uses: ./
